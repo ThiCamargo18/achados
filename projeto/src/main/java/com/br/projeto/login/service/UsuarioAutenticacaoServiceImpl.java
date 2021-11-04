@@ -19,7 +19,7 @@ public class UsuarioAutenticacaoServiceImpl implements UsuarioAutenticacaoServic
 
     @Override
     public UsuarioEntity findByLogin(String id) {
-        return usuarioRepository.findByUsuario(id);
+        return usuarioRepository.findByCpf(id);
     }
 
     @Override

@@ -3,6 +3,7 @@ package com.br.projeto.login.controller;
 import com.br.projeto.login.models.UsuarioEntity;
 import com.br.projeto.login.models.UsuarioEntrada;
 import com.br.projeto.login.models.UsuarioSessao;
+import com.br.projeto.login.service.UsuarioService;
 import com.br.projeto.login.service.UsuarioAutenticacaoService;
 import com.br.projeto.security.model.RoleEntity;
 import com.br.projeto.security.service.SecurityService;
@@ -12,6 +13,7 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.ModelAndView;
 
 import javax.servlet.http.HttpServletRequest;
@@ -23,6 +25,8 @@ public class LoginController {
     @Autowired
     private UsuarioAutenticacaoService usuarioAutenticacaoService;
     @Autowired
+    private UsuarioService usuarioService;
+    @Autowired
     private SecurityService securityService;
 
     @GetMapping("/login")
@@ -32,6 +36,21 @@ public class LoginController {
         }
 
         return "login";
+    }
+
+    @GetMapping("/loginSenha")
+    public ModelAndView loginSenha(@RequestParam("cpf") String cpf, Model model) {
+        UsuarioEntity usuarioEntity = usuarioService.buscarPorCpf(cpf);
+
+        if (usuarioEntity == null) {
+            return new ModelAndView("login");
+        }
+
+        ModelAndView modelAndView = new ModelAndView("loginSenha");
+
+        model.addAttribute("cpf", cpf);
+
+        return modelAndView;
     }
 
     @GetMapping("/inscrever")

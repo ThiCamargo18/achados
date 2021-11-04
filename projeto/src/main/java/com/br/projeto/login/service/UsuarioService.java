@@ -16,7 +16,7 @@ import java.util.HashSet;
 import java.util.Set;
 
 @Service
-public class LoginService implements UserDetailsService {
+public class UsuarioService implements UserDetailsService {
     @Autowired
     private UsuarioRepository userRepository;
 
@@ -24,7 +24,7 @@ public class LoginService implements UserDetailsService {
     @Transactional(readOnly = true)
     public UserDetails loadUserByUsername(String username) {
 
-        UsuarioEntity user = userRepository.findByUsuario(username);
+        UsuarioEntity user = userRepository.findByCpf(username);
         if (user == null) throw new UsernameNotFoundException(username);
 
         Set<GrantedAuthority> grantedAuthorities = new HashSet<>();
@@ -32,7 +32,11 @@ public class LoginService implements UserDetailsService {
             grantedAuthorities.add(new SimpleGrantedAuthority(role.getName()));
         }
 
-        return new org.springframework.security.core.userdetails.User(user.getUsuario(), user.getSenha(), grantedAuthorities);
+        return new org.springframework.security.core.userdetails.User(user.getCpf(), user.getSenha(), grantedAuthorities);
 
+    }
+
+    public UsuarioEntity buscarPorCpf(String cpf){
+        return userRepository.findByCpf(cpf);
     }
 }
