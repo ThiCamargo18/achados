@@ -23,9 +23,6 @@ public class UsuarioEntity {
     @Column(name = "senha")
     private String senha;
 
-    @Column(name = "confirmarSenha")
-    private String confirmarSenha;
-
     @Column(name = "telefone")
     private String telefone;
 
@@ -86,14 +83,6 @@ public class UsuarioEntity {
 
     public void setSenha(String senha) {
         this.senha = senha;
-    }
-
-    public String getConfirmarSenha() {
-        return confirmarSenha;
-    }
-
-    public void setConfirmarSenha(String confirmarSenha) {
-        this.confirmarSenha = confirmarSenha;
     }
 
     public String getTelefone() {

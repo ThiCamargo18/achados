@@ -18,6 +18,9 @@ public class RoleEntity {
     @ManyToMany(mappedBy = "roles")
     private Set<UsuarioEntity> users;
 
+    public RoleEntity() {
+    }
+
     public RoleEntity(String role) {
         this.name = role;
     }
@@ -45,4 +48,6 @@ public class RoleEntity {
     public void setUsers(Set<UsuarioEntity> users) {
         this.users = users;
     }
+
+
 }

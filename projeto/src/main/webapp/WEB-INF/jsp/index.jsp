@@ -36,7 +36,7 @@
                         <a href="#">Meus Achados</a>
                         <a href="#">Meus Perdidos</a>
                         <a href="#">Doações</a>
-                        <a href="#">Sair</a>
+                        <a href="/logout">Sair</a>
                     </div>
                 </div>
         </nav>

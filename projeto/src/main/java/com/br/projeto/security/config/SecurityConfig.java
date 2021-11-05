@@ -27,6 +27,7 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
 
     private static final String[] LISTA_AUTORIZACAO = {
             "/inscrever**",
+            "/loginSenha**",
             "/assets/**",
             "/css/**",
             "/js/**",
@@ -48,7 +49,7 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
                     .permitAll()
                     .and()
                 .logout()
-                    .permitAll()
+                    .logoutSuccessUrl("/login")
                 .and().
                     cors().and().
                     csrf().disable();

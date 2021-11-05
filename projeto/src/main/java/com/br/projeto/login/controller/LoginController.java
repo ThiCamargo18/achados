@@ -1,5 +1,6 @@
 package com.br.projeto.login.controller;
 
+import com.br.projeto.login.models.RealizaLogin;
 import com.br.projeto.login.models.UsuarioEntity;
 import com.br.projeto.login.models.UsuarioEntrada;
 import com.br.projeto.login.models.UsuarioSessao;
@@ -51,6 +52,19 @@ public class LoginController {
         model.addAttribute("cpf", cpf);
 
         return modelAndView;
+    }
+
+    @PostMapping("/loginSenha")
+    public String entrar(@ModelAttribute("realizaLogin") RealizaLogin realizaLogin, Model model){
+        securityService.autoLogin(realizaLogin.getCpf(), realizaLogin.getSenha());
+
+        if (securityService.isAuthenticated()) {
+            return "redirect:/";
+        }
+
+        model.addAttribute("cpf", realizaLogin.getCpf());
+
+        return "loginSenha";
     }
 
     @GetMapping("/inscrever")
