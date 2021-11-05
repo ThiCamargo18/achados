@@ -1,8 +1,8 @@
 package com.br.projeto.login.service;
 
-import com.br.projeto.login.models.UsuarioEntity;
-import com.br.projeto.login.repository.UsuarioRepository;
 import com.br.projeto.security.model.RoleEntity;
+import com.br.projeto.usuario.models.UsuarioEntity;
+import com.br.projeto.usuario.repository.UsuarioRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.authority.SimpleGrantedAuthority;
@@ -16,7 +16,7 @@ import java.util.HashSet;
 import java.util.Set;
 
 @Service
-public class UsuarioService implements UserDetailsService {
+public class LoginService implements UserDetailsService {
     @Autowired
     private UsuarioRepository userRepository;
 
@@ -34,9 +34,5 @@ public class UsuarioService implements UserDetailsService {
 
         return new org.springframework.security.core.userdetails.User(user.getCpf(), user.getSenha(), grantedAuthorities);
 
-    }
-
-    public UsuarioEntity buscarPorCpf(String cpf){
-        return userRepository.findByCpf(cpf);
     }
 }

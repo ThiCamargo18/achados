@@ -1,11 +1,10 @@
 package com.br.projeto.login.controller;
 
 import com.br.projeto.login.models.RealizaLogin;
-import com.br.projeto.login.models.UsuarioEntity;
-import com.br.projeto.login.models.UsuarioEntrada;
-import com.br.projeto.login.models.UsuarioSessao;
-import com.br.projeto.login.service.UsuarioService;
-import com.br.projeto.login.service.UsuarioAutenticacaoService;
+import com.br.projeto.usuario.models.UsuarioEntity;
+import com.br.projeto.usuario.models.UsuarioEntrada;
+import com.br.projeto.usuario.service.UsuarioService;
+import com.br.projeto.usuario.service.UsuarioAutenticacaoService;
 import com.br.projeto.security.model.RoleEntity;
 import com.br.projeto.security.service.SecurityService;
 import org.springframework.beans.factory.annotation.Autowired;

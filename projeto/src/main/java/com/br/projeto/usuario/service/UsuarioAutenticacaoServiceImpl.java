@@ -1,8 +1,8 @@
-package com.br.projeto.login.service;
+package com.br.projeto.usuario.service;
 
-import com.br.projeto.login.models.UsuarioEntity;
-import com.br.projeto.login.models.UsuarioEntrada;
-import com.br.projeto.login.repository.UsuarioRepository;
+import com.br.projeto.usuario.models.UsuarioEntity;
+import com.br.projeto.usuario.models.UsuarioEntrada;
+import com.br.projeto.usuario.repository.UsuarioRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Service;

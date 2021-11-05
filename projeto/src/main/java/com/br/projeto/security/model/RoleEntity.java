@@ -2,7 +2,7 @@ package com.br.projeto.security.model;
 
 
 
-import com.br.projeto.login.models.UsuarioEntity;
+import com.br.projeto.usuario.models.UsuarioEntity;
 
 import javax.persistence.*;
 import java.util.Set;

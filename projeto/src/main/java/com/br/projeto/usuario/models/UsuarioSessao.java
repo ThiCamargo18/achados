@@ -1,4 +1,4 @@
-package com.br.projeto.login.models;
+package com.br.projeto.usuario.models;
 
 public class UsuarioSessao {
     private Long id;
