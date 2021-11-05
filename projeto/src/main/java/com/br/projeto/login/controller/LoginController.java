@@ -55,10 +55,15 @@ public class LoginController {
     }
 
     @PostMapping("/loginSenha")
-    public String entrar(@ModelAttribute("realizaLogin") RealizaLogin realizaLogin, Model model){
+    public String entrar(@ModelAttribute("realizaLogin") RealizaLogin realizaLogin, Model model, HttpServletRequest request){
         securityService.autoLogin(realizaLogin.getCpf(), realizaLogin.getSenha());
 
         if (securityService.isAuthenticated()) {
+            UsuarioEntity usuarioEntity = usuarioService.buscarPorCpf(realizaLogin.getCpf());
+
+            HttpSession session = request.getSession();
+            session.setAttribute("nomeUsuario", usuarioEntity.getNome());
+
             return "redirect:/";
         }
 
@@ -69,10 +74,6 @@ public class LoginController {
 
     @GetMapping("/inscrever")
     public String inscrever(Model model) {
-        if (securityService.isAuthenticated()) {
-            return "redirect:/";
-        }
-
         model.addAttribute("usuarioEntrada", new UsuarioEntrada());
 
         return "inscrever";
@@ -86,16 +87,9 @@ public class LoginController {
 
         securityService.autoLogin(usuarioEntrada.getUsuario(), usuarioEntrada.getSenha());
 
-        UsuarioSessao usuarioSessao = new UsuarioSessao();
-        usuarioSessao.setId(save.getId());
-        usuarioSessao.setNome(save.getNome());
-
         HttpSession session = request.getSession();
-        session.setAttribute("usuarioLogado", usuarioSessao);
+        session.setAttribute("nomeUsuario", save.getNome());
 
-        ModelAndView mv = new ModelAndView("index");
-        mv.addObject("usuarioLogado", usuarioSessao);
-
-        return mv;
+        return new ModelAndView("index");
     }
 }
