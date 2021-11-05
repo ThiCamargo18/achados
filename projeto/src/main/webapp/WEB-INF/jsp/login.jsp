@@ -14,7 +14,7 @@
 <body id="login">
     <div class="fundo">
         <div class="img-cel">
-            <img src="img/celular.png">
+            <img src="/img/celular.png">
         </div>
         <div class="fundo-login">
             <div class="grupo">
