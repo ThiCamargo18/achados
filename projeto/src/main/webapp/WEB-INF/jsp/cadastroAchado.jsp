@@ -30,13 +30,13 @@
                     </li>
                 </ul>
                 <div class="dropdown">
-                    <button class="dropbtn">Nome do Usuário</button>
+                    <button class="dropbtn"><%= session.getAttribute("nomeUsuario") %></button>
                     <div class="dropdown-content">
                         <a href="#">Perfil</a>
                         <a href="#">Meus Achados</a>
                         <a href="#">Meus Perdidos</a>
                         <a href="#">Doações</a>
-                        <a href="#">Sair</a>
+                        <a href="/logout">Sair</a>
                     </div>
                 </div>
         </nav>
@@ -48,7 +48,7 @@
             </div>
         
         
-            <form class="row g-3" action="cadastrar.php" method="post">
+            <form class="row g-3" method="post">
         
               <div class="col-md-12">
                 <label class="form-label">Nome</label>
@@ -59,7 +59,7 @@
               <div class="col-md-12">
                 <div class="form-group">
                     <label for="exampleFormControlTextarea1">Descrição</label>
-                    <textarea class="form-control rounded-0" id="exampleFormControlTextarea1" rows="10"></textarea>
+                    <textarea class="form-control rounded-0" name="descricao" id="exampleFormControlTextarea1" rows="10"></textarea>
                   </div>
               </div>
         

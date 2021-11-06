@@ -1,9 +1,13 @@
-package com.br.projeto.login.models;
+package com.br.projeto.usuario.models;
 
 public class UsuarioSessao {
     private Long id;
     private String nome;
 
+    public UsuarioSessao(Long id, String nome) {
+        this.id = id;
+        this.nome = nome;
+    }
 
     public String getNome() {
         return nome;

@@ -7,21 +7,26 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width = device-width, initial-scale=1.0">
     <link href="<c:url value="/css/estilo.css"/>" rel="stylesheet" type="text/css">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
     <title>Instagram</title>
 </head>
 
 <body id="login">
     <div class="fundo">
         <div class="img-cel">
-            <img src="img/celular.png" alt="Celular">
+            <img src="/img/celular.png">
         </div>
         <div class="fundo-login">
             <div class="grupo">
                 <h1 class="margin-abaixo">ACHADOS E PERDIDOS</h1>
-                <form class="margin-abaixo">
-                    <input type="text" name="usuario" class="form-text" id="" placeholder="Usuário"><br>
-                    <input type="password" name="senha" class="form-text" id="" placeholder="Senha"><br>
-                    <input type="submit" class="form-botao" value="Entrar">
+<%--                <form class="margin-abaixo" method="get" action="loginSenha">--%>
+<%--                    <input type="text" name="cpf" class="form-text" id="" placeholder="CPF"><br>--%>
+<%--                    <center><button type="submit" class="btn btn-primary">Entrar</button></center>--%>
+<%--                </form>--%>
+                <form action="/loginSenha" method="get">
+                    <input type="text" name="cpf" class="form-text" id="" placeholder="CPF"><br>
+
+                    <button type="submit" class="btn btn-success">Buscar</button>
                 </form>
                 <div>
                     <a href="#" class="">Esqueceu a senha?</a>

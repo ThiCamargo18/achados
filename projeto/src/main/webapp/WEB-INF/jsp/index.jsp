@@ -1,5 +1,6 @@
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+
 <!DOCTYPE html>
 <html lang="pt-br">
 
@@ -15,6 +16,8 @@
 </head>
 
 <body>
+<%@ page session= "true" %>
+
     <div id="perfil" class="perfil-fonte">
         <nav class="navbar navbar-expand-lg navbar-light bg-light">
             <div class="collapse navbar-collapse" id="navbarNavDropdown">
@@ -30,13 +33,13 @@
                     </li>
                 </ul>
                 <div class="dropdown">
-                    <button class="dropbtn">Nome do Usuário</button>
+                    <button class="dropbtn"><%= session.getAttribute("nomeUsuario") %></button>
                     <div class="dropdown-content">
-                        <a href="#">Perfil</a>
-                        <a href="#">Meus Achados</a>
-                        <a href="#">Meus Perdidos</a>
-                        <a href="#">Doações</a>
-                        <a href="#">Sair</a>
+                        <a href="/#">Perfil</a>
+                        <a href="/#">Meus Achados</a>
+                        <a href="/#">Meus Perdidos</a>
+                        <a href="/#">Doações</a>
+                        <a href="/logout">Sair</a>
                     </div>
                 </div>
         </nav>
@@ -47,7 +50,7 @@
                     <h1 class="bem-vindo">Bem vindo!</h1>
                 </div>
                 <div>
-                    <a href="cadastroAchado.jsp" class="btn bem-vindo-btn">Encontrou algo?</a>
+                    <a href="/cadastroAchado" class="btn bem-vindo-btn">Encontrou algo?</a>
                 </div>
             </div>
         </div>

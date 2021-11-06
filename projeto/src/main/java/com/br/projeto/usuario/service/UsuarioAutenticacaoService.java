@@ -1,8 +1,8 @@
-package com.br.projeto.login.service;
+package com.br.projeto.usuario.service;
 
 
-import com.br.projeto.login.models.UsuarioEntity;
-import com.br.projeto.login.models.UsuarioEntrada;
+import com.br.projeto.usuario.models.UsuarioEntity;
+import com.br.projeto.usuario.models.UsuarioEntrada;
 
 public interface UsuarioAutenticacaoService {
     UsuarioEntity findByLogin(String login);

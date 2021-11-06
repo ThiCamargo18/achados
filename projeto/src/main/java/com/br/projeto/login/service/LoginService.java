@@ -1,8 +1,8 @@
 package com.br.projeto.login.service;
 
-import com.br.projeto.login.models.UsuarioEntity;
-import com.br.projeto.login.repository.UsuarioRepository;
 import com.br.projeto.security.model.RoleEntity;
+import com.br.projeto.usuario.models.UsuarioEntity;
+import com.br.projeto.usuario.repository.UsuarioRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.authority.SimpleGrantedAuthority;
@@ -24,7 +24,7 @@ public class LoginService implements UserDetailsService {
     @Transactional(readOnly = true)
     public UserDetails loadUserByUsername(String username) {
 
-        UsuarioEntity user = userRepository.findByUsuario(username);
+        UsuarioEntity user = userRepository.findByCpf(username);
         if (user == null) throw new UsernameNotFoundException(username);
 
         Set<GrantedAuthority> grantedAuthorities = new HashSet<>();
@@ -32,7 +32,7 @@ public class LoginService implements UserDetailsService {
             grantedAuthorities.add(new SimpleGrantedAuthority(role.getName()));
         }
 
-        return new org.springframework.security.core.userdetails.User(user.getUsuario(), user.getSenha(), grantedAuthorities);
+        return new org.springframework.security.core.userdetails.User(user.getCpf(), user.getSenha(), grantedAuthorities);
 
     }
 }

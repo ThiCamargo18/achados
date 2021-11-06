@@ -1,8 +1,8 @@
-package com.br.projeto.login.repository;
+package com.br.projeto.usuario.repository;
 
-import com.br.projeto.login.models.UsuarioEntity;
+import com.br.projeto.usuario.models.UsuarioEntity;
 import org.springframework.data.jpa.repository.JpaRepository;
 
 public interface UsuarioRepository extends JpaRepository<UsuarioEntity, Long> {
-    UsuarioEntity findByUsuario(String id);
+    UsuarioEntity findByCpf(String cpf);
 }
